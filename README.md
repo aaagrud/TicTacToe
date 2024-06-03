@@ -28,7 +28,3 @@ This application demonstrates the usage of JavaFX to create a graphical user int
     Run:
    `java --module-path "your-path\openjfx-22.0.1_windows-x64_bin-sdk\javafx-sdk-22.0.1\lib" --add-modules javafx.controls,javafx.fxml TicTacToe`
 4. The game window will open with a 3x3 grid. Start playing by clicking on any cell.
-
-## License
-
-This project is licensed under the MIT License. Feel free to use, modify, and distribute as needed.
