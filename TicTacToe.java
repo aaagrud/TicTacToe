@@ -50,7 +50,24 @@ public class TicTacToe extends Application {
 
     //ELDHO
     private void computerMove() {
+        int move = board.computerMoves();
+        if (move != 0) {
+            int row = (move - 1) / 3;
+            int col = (move - 1) % 3;
+            buttons[row][col].setText("O");
+            board.setCell(row, col, 0);
+            if (board.checkWin(0)) {
+                showAlert("Computer wins!");
+                resetBoard();
+            } else if (board.isFull()) {
+                showAlert("It's a tie!");
+                resetBoard();
+            } else {
+                playerTurn = true;
+            }
+        }
     }
+
 
     //DEVI
     private void showAlert(String message) {
