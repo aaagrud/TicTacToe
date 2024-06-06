@@ -71,6 +71,11 @@ public class TicTacToe extends Application {
 
     //DEVI
     private void showAlert(String message) {
+    
+    }
+
+    //DEVI #2
+    private void resetBoard() {
         board.initialise();
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -78,10 +83,6 @@ public class TicTacToe extends Application {
             }
         }
         playerTurn = true;
-    }
-
-    //DEVI #2
-    private void resetBoard() {
     }
 
 
@@ -118,6 +119,10 @@ public class TicTacToe extends Application {
 
         //DEVI #2
         public boolean isValidMove(int move) {
+    
+            int row = (move - 1) / 3;
+            int col = (move - 1) % 3;
+            return arr[row][col] == -1;
         }
     }
 }
