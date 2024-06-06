@@ -98,10 +98,12 @@ public class TicTacToe extends Application {
 
         //DURGA
         public boolean isCellEmpty(int row, int col) {
+            return arr[row][col] == -1;
         }
 
         //DURGA
         public void setCell(int row, int col, int value) {
+            arr[row][col] = value;
         }
 
         //EMIL
