@@ -71,7 +71,11 @@ public class TicTacToe extends Application {
 
     //DEVI
     private void showAlert(String message) {
-    
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Game Over");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     //DEVI #2
@@ -123,6 +127,17 @@ public class TicTacToe extends Application {
 
         //DEVI
         public int computerMoves() {
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (arr[i][j] == -1) {
+                        arr[i][j] = 0;
+                        if (checkWin(0)) {
+                            return 3 * i + j + 1;
+                        }
+                        arr[i][j] = -1;
+                    }
+                }
+            }
         }
 
         //DEVI #2
