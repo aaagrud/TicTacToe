@@ -46,7 +46,23 @@ public class TicTacToe extends Application {
 
     //EMIL
     private void handleButtonClick(int row, int col, Button button) {
+        
+        if (playerTurn && board.isCellEmpty(row, col)) {
+            button.setText("X");
+            board.setCell(row, col, 1);
+            if (board.checkWin(1)) {
+                showAlert("Player wins!");
+                resetBoard();
+            } else if (board.isFull()) {
+                showAlert("It's a tie!");
+                resetBoard();
+            } else {
+                playerTurn = false;
+                computerMove();
+            }
+        }
     }
+
 
     //ELDHO
     private void computerMove() {
@@ -112,8 +128,22 @@ public class TicTacToe extends Application {
         }
 
         //EMIL
-        public boolean checkWin(int player) {
+        public boolean checkWin(int player)  {
+              
+            for (int i = 0; i < 3; i++) {
+                if ((arr[i][0] == player && arr[i][1] == player && arr[i][2] == player) ||
+                    (arr[0][i] == player && arr[1][i] == player && arr[2][i] == player)) {
+                    return true;
+                }
+            }
+         
+            if ((arr[0][0] == player && arr[1][1] == player && arr[2][2] == player) ||
+                (arr[0][2] == player && arr[1][1] == player && arr[2][0] == player)) {
+                return true;
+            }
+            return false;
         }
+
 
         //ELDHO
         public boolean isFull() {
